@@ -3,10 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alley Brawler</title>
+  <title>Alley Brawler - Street Fighter Controls</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Welcome to Alley Brawler</h1>
-  <p>This is a basic Node.js ES6 application serving static HTML files.</p>
+  <div class="container">
+    <h1>Street Fighter Controls</h1>
+    <div class="controls">
+      <div class="joystick-container">
+        <div class="joystick">
+          <div class="direction" data-direction="up-back"></div>
+          <div class="direction" data-direction="up"></div>
+          <div class="direction" data-direction="up-forward"></div>
+          <div class="direction" data-direction="back"></div>
+          <div class="direction" data-direction="neutral"></div>
+          <div class="direction" data-direction="forward"></div>
+          <div class="direction" data-direction="down-back"></div>
+          <div class="direction" data-direction="down"></div>
+          <div class="direction" data-direction="down-forward"></div>
+        </div>
+      </div>
+      <div class="buttons-container">
+        <div class="button-row">
+          <button class="punch" data-button="jab">Jab</button>
+          <button class="punch" data-button="strong">Strong</button>
+          <button class="punch" data-button="fierce">Fierce</button>
+        </div>
+        <div class="button-row">
+          <button class="kick" data-button="short">Short</button>
+          <button class="kick" data-button="forward">Forward</button>
+          <button class="kick" data-button="roundhouse">Roundhouse</button>
+        </div>
+      </div>
+    </div>
+    <div class="output">
+      <h2>Actions:</h2>
+      <button id="reset-button">Reset Actions</button>
+      <div id="action-display"></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
