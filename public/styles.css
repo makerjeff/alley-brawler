@@ -26,7 +26,13 @@ h1 {
   min-height: 50px;
 }
 
-#reset-button {
+.output-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+#reset-button, #execute-combo-button {
   background-color: #666;
   color: #fff;
   border: none;
@@ -34,14 +40,13 @@ h1 {
   padding: 8px 12px;
   font-size: 14px;
   cursor: pointer;
-  margin-bottom: 10px;
 }
 
-#reset-button:hover {
+#reset-button:hover, #execute-combo-button:hover {
   background-color: #888;
 }
 
-#reset-button:active {
+#reset-button:active, #execute-combo-button:active {
   background-color: #aaa;
 }
 

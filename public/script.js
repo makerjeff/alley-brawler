@@ -8,6 +8,17 @@ document.addEventListener('DOMContentLoaded', function() {
   let currentDirection = null;
   let isJoystickActive = false;
 
+  const directionEmojis = {
+    'up': '⬆️',
+    'down': '⬇️',
+    'forward': '➡️',
+    'back': '⬅️',
+    'up-forward': '↗️',
+    'up-back': '↖️',
+    'down-forward': '↘️',
+    'down-back': '↙️'
+  };
+
   // Joystick
   joystick.addEventListener('mousedown', handleJoystickStart);
   joystick.addEventListener('touchstart', handleJoystickStart);
@@ -29,6 +40,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Reset button
   resetButton.addEventListener('click', resetActions);
+
+  // Execute combo button
+  const executeComboButton = document.getElementById('execute-combo-button');
+  executeComboButton.addEventListener('click', executeCombo);
 
   function handleJoystickStart(e) {
     e.preventDefault();
@@ -76,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (direction !== currentDirection) {
       currentDirection = direction;
       if (direction) {
-        addToHistory(`Direction: ${direction}`);
+        addToHistory(directionEmojis[direction]);
       }
     }
   }
@@ -122,6 +137,21 @@ document.addEventListener('DOMContentLoaded', function() {
   function resetActions() {
     actionHistory = [];
     updateDisplay();
+  }
+
+  function executeCombo() {
+    if (actionHistory.length === 0) {
+      alert('No actions to share!');
+      return;
+    }
+    const tweetText = generateTweetText(actionHistory);
+    const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
+    window.open(tweetUrl, '_blank');
+  }
+
+  // Function to generate tweet text - modify this to customize the post copy
+  function generateTweetText(actions) {
+    return `Check out my Alley Brawler combo! \n\n ${actions.join(' ')} \n\n (hashTag)AlleyBrawler`;
   }
 
   function addToHistory(action) {
