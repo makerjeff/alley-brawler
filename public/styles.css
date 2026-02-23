@@ -59,12 +59,22 @@ h1 {
 
 .controls {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 600px;
 }
 
 .joystick-container {
-  margin-bottom: 30px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.buttons-container {
+  flex: 1;
+  max-width: 300px;
 }
 
 .joystick {
@@ -89,11 +99,6 @@ h1 {
   transition: none;
 }
 
-.buttons-container {
-  width: 100%;
-  max-width: 400px;
-}
-
 .button-row {
   display: flex;
   justify-content: space-around;
@@ -109,6 +114,18 @@ button {
   cursor: pointer;
   transition: background-color 0.2s;
   min-width: 80px;
+}
+
+.punch, .kick {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  padding: 0;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
 }
 
 .punch {
@@ -157,5 +174,36 @@ button {
     padding: 12px 15px;
     font-size: 14px;
     min-width: 60px;
+  }
+
+  .punch, .kick {
+    width: 70px;
+    height: 70px;
+    font-size: 12px;
+    margin: 0 5px;
+  }
+}
+
+/* Portrait orientation adjustments */
+@media (orientation: portrait) and (max-width: 768px) {
+  .controls {
+    flex-direction: row;
+  }
+
+  .punch, .kick {
+    width: 60px;
+    height: 60px;
+    font-size: 11px;
+    margin: 0 3px;
+  }
+
+  .joystick {
+    width: 120px;
+    height: 120px;
+  }
+
+  .joystick-indicator {
+    width: 18px;
+    height: 18px;
   }
 }

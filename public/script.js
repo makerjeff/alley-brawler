@@ -160,7 +160,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Function to generate tweet text - modify this to customize the post copy
   function generateTweetText(actions) {
-    return `Check out my Alley Brawler combo! \n\n ${actions.join(' ')} \n\n (hashTag)AlleyBrawler`;
+    const formatted = formatActions(actions);
+    return `Check out my Alley Brawler combo! \n\n ${formatted} \n\n (hashTag)AlleyBrawler (hashTag)optInHashtagOrKeyword`;
+  }
+
+  function formatActions(actions) {
+    if (actions.length === 0) return '';
+    let display = [];
+    let lastType = null;
+    for (let action of actions) {
+      const type = getActionType(action);
+      if (lastType && !(type === 'direction' && lastType === 'direction')) {
+        display.push(' + ');
+      }
+      display.push(action);
+      lastType = type;
+    }
+    return display.join('');
   }
 
   function addToHistory(action) {
@@ -176,8 +192,25 @@ document.addEventListener('DOMContentLoaded', function() {
     if (actionHistory.length === 0) {
       actionDisplay.innerHTML = 'No actions yet';
     } else {
-      actionDisplay.innerHTML = actionHistory.map(action => `<div>${action}</div>`).join('');
+      let display = [];
+      let lastType = null;
+      for (let action of actionHistory) {
+        const type = getActionType(action);
+        if (lastType && !(type === 'direction' && lastType === 'direction')) {
+          display.push(' + ');
+        }
+        display.push(action);
+        lastType = type;
+      }
+      actionDisplay.innerHTML = display.join('');
     }
+  }
+
+  function getActionType(action) {
+    if (Object.values(directionEmojis).includes(action)) return 'direction';
+    if (action === '👊') return 'punch';
+    if (action === '🦶') return 'kick';
+    return 'unknown';
   }
 
   // Initialize display
