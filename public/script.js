@@ -74,12 +74,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (direction !== currentDirection) {
-      if (currentDirection) {
-        stopContinuousInput();
-      }
       currentDirection = direction;
       if (direction) {
-        startContinuousInput(`Direction: ${direction}`);
+        addToHistory(`Direction: ${direction}`);
       }
     }
   }
