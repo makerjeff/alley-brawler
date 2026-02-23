@@ -61,16 +61,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Calculate direction
     let direction = null;
     if (distance > 20) { // Threshold for neutral
-      let angle = Math.atan2(dy, dx) * 180 / Math.PI;
+      let angle = Math.atan2(dy, dx) * 180 / Math.PI - 180; // Rotate 180 degrees
       angle = (angle + 360) % 360;
-      if (angle >= 337.5 || angle < 22.5) direction = 'up';
-      else if (angle >= 22.5 && angle < 67.5) direction = 'up-forward';
-      else if (angle >= 67.5 && angle < 112.5) direction = 'forward';
-      else if (angle >= 112.5 && angle < 157.5) direction = 'down-forward';
-      else if (angle >= 157.5 && angle < 202.5) direction = 'down';
-      else if (angle >= 202.5 && angle < 247.5) direction = 'down-back';
-      else if (angle >= 247.5 && angle < 292.5) direction = 'back';
-      else if (angle >= 292.5 && angle < 337.5) direction = 'up-back';
+      if (angle >= 337.5 || angle < 22.5) direction = 'back';
+      else if (angle >= 22.5 && angle < 67.5) direction = 'up-back';
+      else if (angle >= 67.5 && angle < 112.5) direction = 'up';
+      else if (angle >= 112.5 && angle < 157.5) direction = 'up-forward';
+      else if (angle >= 157.5 && angle < 202.5) direction = 'forward';
+      else if (angle >= 202.5 && angle < 247.5) direction = 'down-forward';
+      else if (angle >= 247.5 && angle < 292.5) direction = 'down';
+      else if (angle >= 292.5 && angle < 337.5) direction = 'down-back';
     }
 
     if (direction !== currentDirection) {
