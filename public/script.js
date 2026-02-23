@@ -19,6 +19,15 @@ document.addEventListener('DOMContentLoaded', function() {
     'down-back': '↙️'
   };
 
+  const buttonEmojis = {
+    'jab': '👊',
+    'strong': '👊',
+    'fierce': '👊',
+    'short': '🦵',
+    'forward': '🦵',
+    'roundhouse': '🦵'
+  };
+
   // Joystick
   joystick.addEventListener('mousedown', handleJoystickStart);
   joystick.addEventListener('touchstart', handleJoystickStart);
@@ -110,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
     e.preventDefault();
     const button = e.target.dataset.button;
     if (button) {
-      startContinuousInput(`Button: ${button}`);
+      startContinuousInput(buttonEmojis[button]);
     }
   }
 
