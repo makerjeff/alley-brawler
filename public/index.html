@@ -10,11 +10,11 @@
   <div class="container">
     <h1>Alley Brawler Controls</h1>
     <div class="output">
-      <h2>Actions:</h2>
+      <h2>Combo</h2>
       <div id="action-display"></div>
     </div>
     <div class="output-buttons">
-      <button id="reset-button">Reset Actions</button>
+      <button id="reset-button">Reset Combo</button>
       <button id="execute-combo-button">Execute Combo</button>
     </div>
     <div class="controls">
@@ -24,15 +24,25 @@
         </div>
       </div>
       <div class="buttons-container">
-        <div class="button-row">
-          <button class="punch" data-button="jab">Jab</button>
-          <button class="punch" data-button="strong">Strong</button>
-          <button class="punch" data-button="fierce">Fierce</button>
+        <div class="button-labels punch-labels">
+          <span>Jab</span>
+          <span>Strong</span>
+          <span>Fierce</span>
         </div>
         <div class="button-row">
-          <button class="kick" data-button="short">Short</button>
-          <button class="kick" data-button="forward">Forward</button>
-          <button class="kick" data-button="roundhouse">Roundhouse</button>
+          <button class="punch" data-button="jab"></button>
+          <button class="punch" data-button="strong"></button>
+          <button class="punch" data-button="fierce"></button>
+        </div>
+        <div class="button-row">
+          <button class="kick" data-button="short"></button>
+          <button class="kick" data-button="forward"></button>
+          <button class="kick" data-button="roundhouse"></button>
+        </div>
+        <div class="button-labels kick-labels">
+          <span>Short</span>
+          <span>Forward</span>
+          <span>Roundhouse</span>
         </div>
       </div>
     </div>

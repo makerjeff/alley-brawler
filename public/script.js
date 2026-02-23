@@ -23,9 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
     'jab': '👊',
     'strong': '👊',
     'fierce': '👊',
-    'short': '🦵',
-    'forward': '🦵',
-    'roundhouse': '🦵'
+    'short': '🦶',
+    'forward': '🦶',
+    'roundhouse': '🦶'
   };
 
   // Joystick
