@@ -161,7 +161,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // Function to generate tweet text - modify this to customize the post copy
   function generateTweetText(actions) {
     const formatted = formatActions(actions);
-    return `Check out my Alley Brawler combo! \n\n ${formatted} \n\n (hashTag)AlleyBrawler (hashTag)optInHashtagOrKeyword`;
+    const tweet = `Check out my Alley Brawler combo! \n\n ${formatted} \n\n (hashTag)AlleyBrawler (hashTag)optInHashtagOrKeyword`;
+    // return tweet.replace(/\(hashTag\)/g, '#'); // turn into hashtag if needed.
+    return tweet;
   }
 
   function formatActions(actions) {
@@ -181,6 +183,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function addToHistory(action) {
     actionHistory.push(action);
+    const tweetText = generateTweetText(actionHistory);
+    if (tweetText.length > 280) {
+      actionHistory.pop();
+      return;
+    }
     // Keep only last 20 actions
     if (actionHistory.length > 20) {
       actionHistory.shift();
